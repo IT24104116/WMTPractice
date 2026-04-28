@@ -30,6 +30,16 @@ function BookForm({ initialValues, onSubmit, submitText }) {
       <label>Author</label>
       <input name="author" value={formData.author} onChange={handleChange} required />
 
+      <label> Description</label>
+      <textarea name="description" value= {formData.description} onChange={handleChange} required />
+      
+      <label>Genre</label>
+      <select name="genre" value={formData.genre } onChange={handleChange} required /> 
+        <option value ="Fiction"> Fiction</option>
+        <option value ="non-fiction"> Non Fiction</option>
+        <Option value ="science"> Science</Option>
+        <option value ="history"> History</option>
+
       {/* TODO: Add input fields for Description and Genre */}
 
       <label>Image URL</label>
