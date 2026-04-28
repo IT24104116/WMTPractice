@@ -6,7 +6,8 @@ function BookForm({ initialValues, onSubmit, submitText }) {
       title: "",
       author: "",
       imageUrl: "",
-      // TODO: Add description and genre to state
+      description: "",
+      genre: "Fiction",
     }
   );
 
@@ -30,17 +31,22 @@ function BookForm({ initialValues, onSubmit, submitText }) {
       <label>Author</label>
       <input name="author" value={formData.author} onChange={handleChange} required />
 
-      <label> Description</label>
-      <textarea name="description" value= {formData.description} onChange={handleChange} required />
-      
-      <label>Genre</label>
-      <select name="genre" value={formData.genre } onChange={handleChange} required /> 
-        <option value ="Fiction"> Fiction</option>
-        <option value ="non-fiction"> Non Fiction</option>
-        <Option value ="science"> Science</Option>
-        <option value ="history"> History</option>
+      <label>Description</label>
+      <textarea
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        required
+      />
 
-      {/* TODO: Add input fields for Description and Genre */}
+      <label>Genre</label>
+      <select name="genre" value={formData.genre} onChange={handleChange} required>
+        <option value="Fiction">Fiction</option>
+        <option value="Non-Fiction">Non-Fiction</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <option value="Other">Other</option>
+      </select>
 
       <label>Image URL</label>
       <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} />

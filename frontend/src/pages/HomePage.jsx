@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getBooks } from "../api/bookApi.js";
+import { deleteBook, getBooks } from "../api/bookApi.js";
 import BookCard from "../components/BookCard.jsx";
 
 function HomePage() {
@@ -17,12 +17,15 @@ function HomePage() {
     }
   };
 
-  function handleDelete(bookId) {
-    setBooks((prevBooks) => prevBooks.filter((book) => book._id !== bookId));
-    
+  const handleDelete = async (bookId) => {
+    try {
+      await deleteBook(bookId);
+      setBooks((prevBooks) => prevBooks.filter((book) => book._id !== bookId));
+    } catch (error) {
+      console.error("Failed to delete book", error);
+      alert("Failed to delete book");
+    }
   }
-
-  // TODO: Implement handleDelete logic here
 
   useEffect(() => {
     fetchBooks();
